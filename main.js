@@ -37,6 +37,7 @@ exec('git rev-list --tags --max-count=1', (err, rev, stderr) => {
 
             console.log('\x1b[32m%s\x1b[0m', `Found tag: ${tag}`);
             console.log('\x1b[32m%s\x1b[0m', `Found timestamp: ${timestamp}`);
+			tag = tag.replace('v', '');
             console.log(`::set-output name=tag::${tag}`);
             console.log(`::set-output name=timestamp::${timestamp}`);
             process.exit(0);
